@@ -1,0 +1,9 @@
+{__name__="http_request_duration_seconds_bucket", action="CompanySection", code="200", controller="KYCCompany", endpoint="kyc/company/section", instance="host.docker.internal:44330", job="linked-business-metrics", le="+Inf", method="POST"}
+
+sum(rate(http_request_duration_seconds_sum{job="linked-business-metrics", instance="host.docker.internal:44330", method="POST", status_code="200", controller="KYCCompany", endpoint="kyc/company/section"}[5m])) / sum(rate(http_request_duration_seconds_count{job="linked-business-metrics", instance="host.docker.internal:44330", method="POST", status_code="200", controller="KYCCompany", endpoint="kyc/company/section"}[5m]))
+
+http_request_duration_seconds_sum{code="200",method="GET",controller="Users",action="GetCompanyProfileHistory",endpoint="users/company-profile-history"}
+
+
+sum(rate(http_request_duration_seconds_sum{code="200",method="GET",controller="Users",action="GetCompanyProfileHistory",endpoint="users/company-profile-history"}
+[5m])) / sum(rate(http_request_duration_seconds_count{code="200",method="GET",controller="Users",action="GetCompanyProfileHistory",endpoint="users/company-profile-history"}[5m]))

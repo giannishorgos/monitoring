@@ -1,0 +1,5 @@
+scrape_configs:
+  - job_name: 'linked-business-metrics'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['host.docker.internal:44330']
