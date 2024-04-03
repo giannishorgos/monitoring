@@ -1,0 +1,16 @@
+#/bin/bash
+
+bearerToken="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlBiODZLbU5OZ0xzREpoVWd1aWJ3eiJ9.eyJodHRwczovL2xpbmtlZGJ1c2luZXNzLmNvbS9lbWFpbCI6ImkuaG9yZ29zQGZyb21zY3JhdGNoLmdyIiwiaXNzIjoiaHR0cHM6Ly9saW5rZWRidXNpbmVzcy1kZXYudXMuYXV0aDAuY29tLyIsInN1YiI6Imdvb2dsZS1vYXV0aDJ8MTA4OTkyNDAyNjU4NTU3NTg0MzAxIiwiYXVkIjpbImxpbmtlZGJ1c2luZXNzLWRldiIsImh0dHBzOi8vbGlua2VkYnVzaW5lc3MtZGV2LnVzLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE3MTEyMjg4MzQsImV4cCI6MTcxMTMxNTIzNCwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCIsImF6cCI6Ik5GRmRrc3lWN2tDUTZzMWZWdkZGTXhWYjZXb3RlZlpUIiwicGVybWlzc2lvbnMiOlsiYWNjZXNzOmFkbWluLXByb2R1Y3RzIl19.qDTjJruwrdYDvpVhA0EM4xCGFFGCV5HHhXJn3_jk8pQ8mE1NTUibo8wh6DATJCMD1jCAOIuRqWuo631YNhwiQb3vkjj7yTxasCoXn1cHfAKvBKvb9vwMN6zPhxwVTgMi4BTQ5zuKq1zj99fWoG_GCAENTYevvB87gs0_Cw0LtF6pIQNf0R34dOVjSUTltqlMwZ5HD5VhgrWoZfDLiJ49F5ifFmS6YzvokyKtwk8ScHwUhaYx4eey1jijrfFHRPOzimLSqCRwRVnQhgLcuXc1tvM7JpaZWQw4JhuVbs5wwXBfsogMqlC99z1ClTBOFXHkH2xBJZAiKMvNUVrz07WZIg"
+
+env="http://localhost:44330/"
+
+endpoints=("users/company-profile-history")
+
+for endpoint in ${endpoints[@]}; 
+do
+    echo "Requesting $env$endpoint"
+    # curl -X GET --location $env$endpoint 
+    curl --location $env$endpoint \
+         --header 'Content-Type: application/json' \
+         --header 'Authorization: Bearer $bearerToken' | xargs echo
+done
